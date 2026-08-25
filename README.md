@@ -25,3 +25,6 @@ The admin project opens directly into the admin portal and does not render the c
 
 For local testing, open `/admin` and use `admin@adamaq.com` / `admin123`.
 
+
+
+<!-- Neon shared data API deployment check -->
