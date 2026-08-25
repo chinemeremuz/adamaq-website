@@ -9,7 +9,9 @@ npm install
 npm run dev
 ```
 
-Open the local URL shown by Vite. Customer checkout uses a safe local payment simulator; a real Paystack adapter can replace `src/store.js`'s `processPayment` function using the variables in `.env.example` and server-side verification.
+Open the local URL shown by Vite. Customer checkout is guest-only and currently supports manual bank transfer: the order is created as “Awaiting payment”, the customer sees the bank details, and a WhatsApp payment-proof link opens automatically. Set `VITE_BANK_NAME`, `VITE_BANK_ACCOUNT_NAME`, and `VITE_BANK_ACCOUNT_NUMBER` in Vercel before launch.
+
+For automated payments later, a Nigerian provider account is still required. Flutterwave and Monnify both support Nigerian bank-transfer collection, but their official integrations require provider credentials and verification.
 
 ## Storefront and admin deployments
 
