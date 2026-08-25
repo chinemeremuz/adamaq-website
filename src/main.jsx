@@ -27,10 +27,18 @@ const bankDetails = {
   name: import.meta.env.VITE_BANK_ACCOUNT_NAME || 'Adamaq Fashion',
   number: import.meta.env.VITE_BANK_ACCOUNT_NUMBER || 'Add your account number'
 };
+const sharedApi = async (path, method = 'GET', body) => {
+  const response = await fetch(path, {method, headers: {'Content-Type': 'application/json'}, body: body ? JSON.stringify(body) : undefined});
+  if (!response.ok) throw new Error('Shared data service unavailable');
+  return response.json();
+};
 
 function App(){
-  const [state,setState]=useState(load); const [page,setPage]=useState(import.meta.env.VITE_APP_MODE==='admin'||window.location.pathname.startsWith('/admin')?'admin':'home'); const [selected,setSelected]=useState(null); const [query,setQuery]=useState(''); const [menu,setMenu]=useState(false); const [toast,setToast]=useState('');
+  const [state,setState]=useState(load); const [sharedReady,setSharedReady]=useState(false); const [page,setPage]=useState(import.meta.env.VITE_APP_MODE==='admin'||window.location.pathname.startsWith('/admin')?'admin':'home'); const [selected,setSelected]=useState(null); const [query,setQuery]=useState(''); const [menu,setMenu]=useState(false); const [toast,setToast]=useState('');
   useEffect(()=>localStorage.setItem('adamaq-store',JSON.stringify(state)),[state]);
+  useEffect(()=>{Promise.all([sharedApi('/api/orders'),sharedApi('/api/consultations')]).then(([orders,consultations])=>{setState(s=>({...s,orders:orders.orders||[],consultations:consultations.consultations||[]}));setSharedReady(true)}).catch(()=>setSharedReady(true))},[]);
+  useEffect(()=>{if(sharedReady&&state.orders.length)sharedApi('/api/orders','POST',state.orders).catch(()=>{})},[state.orders,sharedReady]);
+  useEffect(()=>{if(sharedReady&&state.consultations.length)sharedApi('/api/consultations','POST',state.consultations).catch(()=>{})},[state.consultations,sharedReady]);
   useEffect(()=>{ if(toast){const t=setTimeout(()=>setToast(''),2600);return()=>clearTimeout(t)}},[toast]);
   const go=(p)=>{setPage(p);setMenu(false);window.scrollTo(0,0)};
   const add=(product,size=product.sizes[0],color=product.colors[0])=>{setState(s=>{const found=s.cart.find(i=>i.id===product.id&&i.size===size&&i.color===color);return {...s,cart:found?s.cart.map(i=>i===found?{...i,qty:Math.min(i.qty+1,10)}:i):[...s.cart,{...product,size,color,qty:1}]}});setToast('Added to bag');};
