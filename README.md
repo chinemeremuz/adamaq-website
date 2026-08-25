@@ -11,4 +11,15 @@ npm run dev
 
 Open the local URL shown by Vite. Customer checkout uses a safe local payment simulator; a real Paystack adapter can replace `src/store.js`'s `processPayment` function using the variables in `.env.example` and server-side verification.
 
-Admin access: open **Admin** in the header and use `admin@adamaq.com` / `admin123`.
+## Storefront and admin deployments
+
+The app supports two Vercel projects from this same GitHub repository:
+
+1. Create a Vercel project called `adamaq-storefront`, select this repository, and set `VITE_APP_MODE=storefront`.
+2. Create a second Vercel project called `adamaq-admin`, select the same repository, and set `VITE_APP_MODE=admin`.
+3. Give the second project a separate subdomain such as `admin.adamaq.com` in Vercel Domains.
+
+The admin project opens directly into the admin portal and does not render the customer storefront header. The current login is a local preview gate only; before accepting real customer data, replace it with server-side authentication and a database-backed API.
+
+For local testing, open `/admin` and use `admin@adamaq.com` / `admin123`.
+
