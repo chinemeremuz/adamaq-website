@@ -13,6 +13,8 @@ Open the local URL shown by Vite. Customer checkout is guest-only and currently 
 
 For automated payments later, a Nigerian provider account is still required. Flutterwave and Monnify both support Nigerian bank-transfer collection, but their official integrations require provider credentials and verification.
 
+Consultations are guest-only. Customers can optionally choose “I want Adamaq to make a bespoke dress” and submit measurements separately from AQ Label sizing. The request is stored with the consultation and shown in the admin portal. To receive an email for each new request, add `RESEND_API_KEY` and `CONSULTATION_RECIPIENT_EMAIL` in the Vercel project environment variables. `EMAIL_FROM=onboarding@resend.dev` is suitable for testing; use a verified Adamaq domain sender before launch.
+
 ## Storefront and admin deployments
 
 The app supports two Vercel projects from this same GitHub repository:
@@ -25,6 +27,3 @@ The admin project opens directly into the admin portal and does not render the c
 
 For local testing, open `/admin` and use `admin@adamaq.com` / `admin123`.
 
-
-
-<!-- Neon shared data API deployment check -->
