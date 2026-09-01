@@ -17,7 +17,7 @@ const productsSeed = [
   {id:11,name:'Meridian Rib Tank',category:'Knitwear',price:32000,colors:['White','Black','Clay'],sizes:['XS','S','M','L'],image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85',description:'A close-fitting rib tank with a sculptural neckline.'},
   {id:12,name:'Dune Suede Jacket',category:'Jackets',price:165000,tag:'New',colors:['Sand'],sizes:['S','M','L'],image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85',description:'Supple suede, generous pockets and a cropped proportion for the season.'}
 ];
-const originalProductImages=['/adamaq-assets/IMG_2934.JPG.jpeg','/adamaq-assets/IMG_2951.JPG.jpeg','/adamaq-assets/IMG_1905.PNG','/adamaq-assets/IMG_4014.JPG.jpeg','/adamaq-assets/IMG_8503.jpg','/adamaq-assets/IMG_1647.JPG.jpeg','/adamaq-assets/IMG_1797.jpg','/adamaq-assets/IMG_4127.jpg','/adamaq-assets/IMG_1253.jpg','/adamaq-assets/IMG_2557.PNG','/adamaq-assets/IMG_8504.jpg','/adamaq-assets/IMG_4015.JPG.jpeg'];
+const originalProductImages=['/2934.jpg','/2951.jpg','/1905.jpg','/2935.jpg','/8503.jpg','/1647.jpg','/1797.jpg','/4127.jpg','/1253.jpg','/2557.jpg','/8504.jpg','/2937.jpg'];
 productsSeed.forEach((product,index)=>{product.image=originalProductImages[index]});
 Object.assign(productsSeed[0],{name:'Cocoa Sculpted Gown',category:'Bespoke Bridal',price:485000,tag:'Bespoke',colors:['Cocoa'],sizes:['Custom']});
 Object.assign(productsSeed[1],{name:'Noir & Gold Occasion Mini',category:'Aso Ebi',price:225000,tag:'Aso Ebi',colors:['Noir','Gold'],sizes:['Custom']});
