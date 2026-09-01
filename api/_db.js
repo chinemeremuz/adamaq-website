@@ -12,7 +12,8 @@ export async function ensureSchema(sql) {
   if (!schemaReady) {
     schemaReady = Promise.all([
       sql`CREATE TABLE IF NOT EXISTS adamaq_orders (id TEXT PRIMARY KEY, data JSONB NOT NULL, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`,
-      sql`CREATE TABLE IF NOT EXISTS adamaq_consultations (id TEXT PRIMARY KEY, data JSONB NOT NULL, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`
+      sql`CREATE TABLE IF NOT EXISTS adamaq_consultations (id TEXT PRIMARY KEY, data JSONB NOT NULL, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`,
+      sql`CREATE TABLE IF NOT EXISTS adamaq_products (id TEXT PRIMARY KEY, data JSONB NOT NULL, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`
     ]);
   }
   await schemaReady;
