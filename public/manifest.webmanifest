@@ -1,0 +1,11 @@
+{
+  "name": "Adamaq Fashion",
+  "short_name": "Adamaq",
+  "description": "Bridal couture, Aso Ebi and AQ Label ready-to-wear fashion.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf8",
+  "theme_color": "#171717",
+  "icons": []
+}
+
