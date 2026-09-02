@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { LayoutDashboard, ShoppingBag, Package, MessageCircle, LogOut, Plus, Trash2, ExternalLink } from 'lucide-react';
 import './styles.css';
 
-const API = import.meta.env.VITE_STOREFRONT_URL || 'https://adamaq-storefront-git-main-chinemeremuz.vercel.app';
+const API = import.meta.env.VITE_STORE_API_URL || 'https://adamaq-storefront-chinemeremuz.vercel.app';
 const money = value => `₦${Number(value || 0).toLocaleString('en-NG')}`;
 const emptyProduct = () => ({ id: `p-${Date.now()}`, name: '', category: 'Bespoke Bridal', price: '', oldPrice: '', tag: 'New', colors: [''], sizes: ['Custom'], image: '', description: '', published: true });
 
