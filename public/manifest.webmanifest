@@ -6,6 +6,18 @@
   "display": "standalone",
   "background_color": "#fbfaf8",
   "theme_color": "#171717",
-  "icons": []
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/adamaq-logo-transparent.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
-
